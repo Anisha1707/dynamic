@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #fff;
+
+}
+a, .account p{
+    color: #0B2CD1;
+}
+.black{
+    color:  #313335 !important;
+}
+.login-banner {
+    padding: 80px 0 50px 0;
+    min-height: calc(100vh - 206.34px);
+}
+.title h2 {
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 50px;
+    text-align: center; 
+}
+.contact-inner {
+    border-radius: 15px;
+    background-color: #fff; 
+    padding: 25px;
+}
+ 
+.home {
+    background-color: #e8e8e8;
+}
+.contact-img input {
+    padding: 16px;
+    border-radius: 0;
+    color: #263238 !important;
+}
+button.btn.btn-primary {
+    background-color: #B19039;
+    border: 0;
+    border-radius: 0;
+    width: 100%;
+    padding: 15px;
+    letter-spacing: 1px;
+}
+footer {
+    background-color: #fff;
+    padding: 20px 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+select.form-control {
+    border-radius: 0;
+    color: #263238 !important;
+    min-height: 58px;
+}
+.step{
+    display: none;
+}
+.step.active{
+    display: block;
+}
+.list-of-document {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+section.login-banner label {
+    text-align: left !important;
+    display: block;
+    margin-bottom: 2px; 
+    font-size: 14px;
+}
+.error {
+    color: #f00;
+}
+
+.loader {
+    width: 100px;
+    height: 100px;
+    background: url("../images/loading.svg") center top;
+/*    position: absolute;   */
+    position: fixed;
+    left: calc(50% - 30px);
+    top: calc(50% - 30px);
+    z-index: 9;
+}
+
+
+@media screen and (max-width: 767px){
+    .logo h1 {
+        font-size: 15px;
+    }
+    .logo img {
+        width: 90px;
+    }
+    section.login-banner .row:first-child {
+        margin: 0; 
+    }
+    .contact-inner {
+        border-radius: 15px;
+        background-color: #fff;
+        padding: 15px;
+    }
+    .contact-inner h3 {
+        font-size: 19px;
+    }
+    .title.text-left.ml-auto h5 {
+        font-size: 10px;
+    }
+    button.btn.btn-primary { 
+        margin-bottom: 10px;
+    }
+    .no-revert {
+        flex-direction: unset !important;
+    }
+    canvas{
+        width: 100%;
+    }
+    .contact-img.text-center.px-md-5 p {
+        text-align: left;
+    }
+    .title h2 { 
+        font-size: 30px; 
+    }
+    .logo h1 {
+        display: none;
+      }
+      .logo {
+        justify-content: center;
+      }
+      .contact-img img {
+        display: none;
+    }
+}
