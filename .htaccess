@@ -17,11 +17,14 @@ RewriteRule ^customer-portal/?$ customer_portal.php [NC,L]
 RewriteRule ^family-question/?$ family_question.php [NC,L]
 RewriteRule ^family-question-dependent/?$ family_question_dependent.php [NC,L]
 RewriteRule ^documents/?$ documents.php [NC,L]
-RewriteRule ^review/?$ review.php [NC,L]
 RewriteRule ^thank-you/?$ thank_you.php [NC,L]
-RewriteRule ^download/?$ download.php [NC,L]
 RewriteRule ^privacy-policy/?$ privacy_policy.php [NC,L]
 RewriteRule ^logout/?$ logout.php [NC,L]
+RewriteRule ^review/?$ review.php [NC,L]
+RewriteRule ^review/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ review.php?taxApplicationID=$1&mode=$2 [NC,L]
+
+RewriteRule ^download/?$ download.php [NC,L]
+RewriteRule ^download/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ download.php?taxApplicationID=$1&mode=$2 [NC,L]
 
 RewriteRule ^signup/?$ signup.php [NC,L]
 RewriteRule ^process-signup/?$ signup_db.php [NC,L]
@@ -29,6 +32,15 @@ RewriteRule ^confirmation/?$ confirmation.php [NC,L]
 RewriteRule ^process-confirmation/?$ confirmation_db.php [NC,L]
 RewriteRule ^login/?$ login.php [NC,L]
 RewriteRule ^process-login/?$ login_db.php [NC,L]
+
+RewriteRule ^change-username/?$ change_username.php [NC,L]
+RewriteRule ^process-change-username/?$ change_username_db.php [NC,L]
+RewriteRule ^change-password/?$ change_password.php [NC,L]
+RewriteRule ^process-change-password/?$ change_password_db.php [NC,L]
+RewriteRule ^change-profile/?$ change_profile.php [NC,L]
+RewriteRule ^process-change-profile/?$ change_profile_db.php [NC,L]
+RewriteRule ^change-contact/?$ change_contact.php [NC,L]
+RewriteRule ^process-change-contact/?$ change_contact_db.php [NC,L]
 
 RewriteRule ^tax-application/?$ tax_application.php [NC,L]
 RewriteRule ^process-tax-application/?$ tax_application_db.php [NC,L]
@@ -41,11 +53,11 @@ RewriteRule ^process-identification-information/?$ identification_information_db
 RewriteRule ^tax-pin/?$ tax_pin.php [NC,L]
 RewriteRule ^process-tax-pin/?$ tax_pin_db.php [NC,L]
 
-RewriteRule ^tax-application/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ tax_application.php?mode=$1&taxApplicationID=$2 [NC,L]
-RewriteRule ^personal-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ personal_information.php?mode=$1&taxApplicationID=$2 [NC,L]
-RewriteRule ^address/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ address.php?mode=$1&taxApplicationID=$2 [NC,L]
-RewriteRule ^identification-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ identification_information.php?mode=$1&taxApplicationID=$2 [NC,L]
-RewriteRule ^tax-pin/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ tax_pin.php?mode=$1&taxApplicationID=$2 [NC,L]
+RewriteRule ^tax-application/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ tax_application.php?taxApplicationID=$1&mode=$2 [NC,L]
+RewriteRule ^personal-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ personal_information.php?taxApplicationID=$1&mode=$2 [NC,L]
+RewriteRule ^address/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ address.php?taxApplicationID=$1&mode=$2 [NC,L]
+RewriteRule ^identification-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ identification_information.php?taxApplicationID=$1&mode=$2 [NC,L]
+RewriteRule ^tax-pin/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ tax_pin.php?taxApplicationID=$1&mode=$2 [NC,L]
 
 RewriteRule ^spouse-information/?$ spouse_information.php [NC,L]
 RewriteRule ^process-spouse-information/?$ spouse_information_db.php [NC,L]
@@ -58,11 +70,11 @@ RewriteRule ^process-spouse-occupation/?$ spouse_occupation_db.php [NC,L]
 RewriteRule ^spouse-tax-pin/?$ spouse_tax_pin.php [NC,L]
 RewriteRule ^process-spouse-tax-pin/?$ spouse_tax_pin_db.php [NC,L]
 
-RewriteRule ^spouse-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_information.php?mode=$1&spouseID=$2&taxApplicationID=$3 [NC,L]
-RewriteRule ^spouse-address/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_address.php?mode=$1&spouseID=$2&taxApplicationID=$3 [NC,L]
-RewriteRule ^spouse-identification-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_identification_information.php?mode=$1&spouseID=$2&taxApplicationID=$3 [NC,L]
-RewriteRule ^spouse-occupation/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_occupation.php?mode=$1&spouseID=$2&taxApplicationID=$3 [NC,L]
-RewriteRule ^spouse-tax-pin/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_tax_pin.php?mode=$1&spouseID=$2&taxApplicationID=$3 [NC,L]
+RewriteRule ^spouse-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_information.php?taxApplicationID=$1&spouseID=$2&mode=$3 [NC,L]
+RewriteRule ^spouse-address/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_address.php?taxApplicationID=$1&spouseID=$2&mode=$3 [NC,L]
+RewriteRule ^spouse-identification-information/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_identification_information.php?taxApplicationID=$1&spouseID=$2&mode=$3 [NC,L]
+RewriteRule ^spouse-occupation/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_occupation.php?taxApplicationID=$1&spouseID=$2&mode=$3 [NC,L]
+RewriteRule ^spouse-tax-pin/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ spouse_tax_pin.php?taxApplicationID=$1&spouseID=$2&mode=$3 [NC,L]
 
 RewriteRule ^dependents-information/?$ dependents_information.php [NC,L]
 RewriteRule ^dependents-information/([A-Za-z0-9-_]+)/?$ dependents_information.php?id=$1 [NC,L]
@@ -75,12 +87,13 @@ RewriteRule ^process-dependent/([A-Za-z0-9-_]+)/?$ dependent_db.php?mode=$1 [NC,
 
 RewriteRule ^tax-documents-upload/?$ tax_documents_upload.php [NC,L]
 RewriteRule ^process-tax-documents-upload/?$ tax_documents_upload_db.php [NC,L]
+RewriteRule ^tax-documents-upload-model/([A-Za-z0-9-_]+)/?$ tax_documents_upload_model.php?taxApplicationID=$1 [NC,L]
+RewriteRule ^process-tax-documents-upload-model/?$ tax_documents_upload_model_db.php [NC,L]
 RewriteRule ^tax-documents/?$ tax_documents.php [NC,L]
 RewriteRule ^process-tax-documents/?$ tax_documents_db.php [NC,L]
 
 RewriteRule ^sign-your-application/?$ sign_your_application.php [NC,L]
 RewriteRule ^process-sign-your-application/?$ sign_your_application_db.php [NC,L]
-
 
 
 
