@@ -1,10 +1,5 @@
 <?php
 	include('connect.php');
-	$db->checkLogin();
-	//print $_SESSION[SESS_PRE.'_USER_TOKEN'];
-	//print_r($_REQUEST);
-
-	$mode = $_REQUEST['mode'];
 
 	$firstName = $_REQUEST['firstName'];
 	$middleName = $_REQUEST['middleName'];
@@ -55,11 +50,8 @@
     if( $httpcode == 200 )
     //if( strtolower($res['status']) == 'success' )
     {
-    	$_SESSION['MSG'] = 'Personal_Info_Success';
-    	if( $mode == 'add' )
-			$db->location(SITEURL.'address/');
-		else
-			$db->location(SITEURL.'review/');
+    	$_SESSION['MSG'] = 'Update_Profile_Success';
+		$db->location(SITEURL.'customer-portal/');
 		exit;
 	}
 	else if( $httpcode == 400 )
@@ -74,7 +66,7 @@
 		}
 		else
 			$_SESSION['MSG'] = $res['errorList'][0];
-		$db->location(SITEURL.'personal-information/');
+		$db->location(SITEURL.'change-profile/');
 		exit;
 	}
 	else if( $httpcode == 401 )
@@ -86,10 +78,7 @@
 	else
 	{
 		$_SESSION['MSG'] = 'Something_Wrong';
-		if( $mode == 'add' )
-			$db->location(SITEURL.'personal-information/');
-		else
-			$db->location(SITEURL.'personal-information/'.$taxApplicationID.'/edit/');
+		$db->location(SITEURL.'change-profile/');
 		exit;
 	}
 ?>

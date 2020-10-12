@@ -77,7 +77,7 @@
 			if( $mode == 'add' )
 				$db->location(SITEURL.'spouse-tax-pin/');
 			else
-				$db->location(SITEURL.'spouse-tax-pin/edit/'.$spouseID.'/'.$taxApplicationID.'/');
+				$db->location(SITEURL.'spouse-tax-pin/'.$taxApplicationID.'/'.$spouseID.'/edit/');
 			exit;
 		}		
 	}

@@ -67,11 +67,26 @@
              <div class="row">
                  <div class="col-md-12">
                      <div class="contact-inner">
+                      <?php 
+                        if($mode=='add')
+                        {
+                          $progress = 20;
+                      ?>
+                        <div class="row mb-5">
+                          <div class="col-md-12">
+                            <div class="progress" style="height:2vw;">
+                              <div class="progress-bar" role="progressbar" style="width: <?php echo $progress; ?>%;" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress; ?>%</div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                        }
+                      ?>                      
                          <div class="row no-gutters">
                              <div class="col-md-7">
                                  <div class="contact-img text-center px-md-5">
                                      <div class="title mb-3">
-                                         <h3 class="text-left"><strong>ADDRESS</strong><?php echo ($mode=='add')?'<span class="ml-5 pl-5 text-info">20%</span>':''; ?></h3>  
+                                         <h3 class="text-left"><strong>ADDRESS</strong></h3>  
                                      </div>
                                      <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-address/">
                                         <input type="hidden" name="mode" id="mode" value="<?php echo $mode; ?>">

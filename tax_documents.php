@@ -51,11 +51,25 @@
              <div class="row">
                  <div class="col-md-12">
                      <div class="contact-inner">
+                      <?php 
+                        {
+                          $progress = 75;
+                      ?>
+                        <div class="row mb-5">
+                          <div class="col-md-12">
+                            <div class="progress" style="height:2vw;">
+                              <div class="progress-bar" role="progressbar" style="width: <?php echo $progress; ?>%;" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress; ?>%</div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                        }
+                      ?>                      
                          <div class="row no-gutters">
                              <div class="col-md-7">
                                  <div class="contact-img text-center px-md-5">
                                      <div class="title mb-3">
-                                         <h3 class="text-left"><strong>Tax Documents</strong><?php echo '<span class="ml-5 pl-5 text-info">75%</span>'; ?></h3>  
+                                         <h3 class="text-left"><strong>Tax Documents</strong></h3>  
                                      </div>
                                     <?php
                                         if( count($res) )

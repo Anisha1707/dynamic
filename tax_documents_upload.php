@@ -109,11 +109,26 @@
              <div class="row">
                  <div class="col-md-12">
                      <div class="contact-inner">
+                      <?php 
+                        if($mode=='add')
+                        {
+                          $progress = 75;
+                      ?>
+                        <div class="row mb-5">
+                          <div class="col-md-12">
+                            <div class="progress" style="height:2vw;">
+                              <div class="progress-bar" role="progressbar" style="width: <?php echo $progress; ?>%;" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress; ?>%</div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                        }
+                      ?>                      
                          <div class="row no-gutters">
                              <div class="col-md-7">
                                  <div class="contact-img text-center px-md-5">
                                      <div class="title mb-3">
-                                         <h3 class="text-left"><strong>Tax Documents upload</strong><?php echo '<span class="ml-5 pl-5 text-info">75%</span>'; ?></h3>  
+                                         <h3 class="text-left"><strong>Tax Documents upload</strong></h3>  
                                      </div>
                                      <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-tax-documents-upload/" enctype="multipart/form-data">
                                     <!-- <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>test_upload.php" enctype="multipart/form-data"> -->
@@ -122,7 +137,7 @@
                                        <div class="row no-revert">
                                            <div class="col-md-12">
                                                 <div class="form-group"> 
-                                                    <label for="documentType">Documents Type</label>
+                                                    <label for="documentType">Document Type</label>
                                                     <select name="documentType" id="documentType" class="form-control">
                                                         <option value=""></option>
                                                         <?php
@@ -138,7 +153,7 @@
                                            </div>
                                            <div class="col-md-12">
                                                 <div class="form-group"> 
-                                                    <label for="nameOfDocument">Name of Documents</label>
+                                                    <label for="nameOfDocument">Name of Document</label>
                                                     <input type="text" name="nameOfDocument" id="nameOfDocument" value="<?php echo $nameOfDocument; ?>" maxlength="150" class="form-control" placeholder="Name of Documents"> 
                                                 </div>
                                            </div>

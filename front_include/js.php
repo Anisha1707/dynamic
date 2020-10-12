@@ -166,6 +166,55 @@
 				  icon: 'success',
 				  confirmButtonText: 'Okay'
 				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Update_Username_Success') { ?>
+				Swal.fire({
+				  title: 'Success!',
+				  html: 'Username updated successfully.',
+				  icon: 'success',
+				  confirmButtonText: 'Okay'
+				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Update_Password_Success') { ?>
+				Swal.fire({
+				  title: 'Success!',
+				  html: 'Password updated successfully.',
+				  icon: 'success',
+				  confirmButtonText: 'Okay'
+				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Update_Profile_Success') { ?>
+				Swal.fire({
+				  title: 'Success!',
+				  html: 'Profile information updated successfully.',
+				  icon: 'success',
+				  confirmButtonText: 'Okay'
+				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Update_Contact_Success') { ?>
+				Swal.fire({
+				  title: 'Success!',
+				  html: 'Contact information updated successfully.',
+				  icon: 'success',
+				  confirmButtonText: 'Okay'
+				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Duplicate_Email_Error') { ?>
+				Swal.fire({
+				  title: 'Error!',
+				  html: 'The email address is already registered with us. Please use another!',
+				  icon: 'error',
+				  confirmButtonText: 'Okay'
+				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Duplicate_Phone_Error') { ?>
+				Swal.fire({
+				  title: 'Error!',
+				  html: 'The phone number is already registered with us. Please use another!',
+				  icon: 'error',
+				  confirmButtonText: 'Okay'
+				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Duplicate_User_Error') { ?>
+				Swal.fire({
+				  title: 'Error!',
+				  html: 'The username is already registered with us. Please use another!',
+				  icon: 'error',
+				  confirmButtonText: 'Okay'
+				});
 			<?php unset($_SESSION['MSG']); } else if( isset($_SESSION['MSG']) && !empty($_SESSION['MSG']) ) { ?>
 				//$.notify({message: "<?php echo addslashes($_SESSION['MSG']); ?>"},{type: 'danger'});
 				Swal.fire({

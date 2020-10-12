@@ -113,7 +113,7 @@
 		if( $mode == 'add' )
 			$db->location(SITEURL.'spouse-information/');
 		else
-			$db->location(SITEURL.'spouse-information/edit/'.$spouseID.'/'.$taxApplicationID.'/');
+			$db->location(SITEURL.'spouse-information/'.$taxApplicationID.'/'.$spouseID.'/edit/');
 		exit;
 	}
 ?>

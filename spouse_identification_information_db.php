@@ -89,7 +89,7 @@
 		if( $mode == 'add' )
 			$db->location(SITEURL.'spouse-identification-information/');
 		else
-			$db->location(SITEURL.'spouse-identification-information/edit/'.$spouseID.'/'.$taxApplicationID.'/');
+			$db->location(SITEURL.'spouse-identification-information/'.$taxApplicationID.'/'.$spouseID.'/edit/');
 		exit;
 	}
 ?>

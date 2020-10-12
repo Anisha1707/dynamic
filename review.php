@@ -5,7 +5,16 @@
   if( !isset($_SESSION[SESS_PRE.'_TAX_APPLICATION_ID']) )
     $_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'] = 9;  // 9, 12
 
-    $querystring = '?taxApplicationId='.$_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'];
+  $mode = 'add';
+  $taxApplicationID = $_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'];
+
+  if( isset($_REQUEST['mode']) && !is_null($_REQUEST['mode']) && !empty($_REQUEST['mode']) )
+    $mode = $_REQUEST['mode'];
+  if( isset($_REQUEST['taxApplicationID']) && !is_null($_REQUEST['taxApplicationID']) && !empty($_REQUEST['taxApplicationID']) )
+    $taxApplicationID = $_REQUEST['taxApplicationID'];
+
+    //$querystring = '?taxApplicationId='.$_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'];
+    $querystring = '?taxApplicationId='.$taxApplicationID;
 
     $curl = curl_init();
 
@@ -53,11 +62,25 @@
              <div class="row">
                  <div class="col-md-12">
                      <div class="contact-inner">
+                      <?php 
+                        {
+                          $progress = 80;
+                      ?>
+                        <div class="row mb-5">
+                          <div class="col-md-12">
+                            <div class="progress" style="height:2vw;">
+                              <div class="progress-bar" role="progressbar" style="width: <?php echo $progress; ?>%;" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress; ?>%</div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                        }
+                      ?>                      
                          <div class="row no-gutters no-revert">
                             <div class="col-md-12">
                                 <div class="contact-img text-center px-md-5">
                                     <div class="title mb-3">
-                                        <h3 class="text-left"><strong>REVIEW</strong><?php echo '<span class="ml-5 pl-5 text-info">80%</span>'; ?></h3>  
+                                        <h3 class="text-left"><strong>REVIEW</strong></h3>  
                                     </div>
                                 </div>
                              </div>
@@ -68,7 +91,7 @@
                                       <h5 class="text-left mb-3"><strong>My Information</strong></h5>
                                      <div class="text-center conatc-review">
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>Name:</strong> <span><?php echo $res['firstName'] . ' ' . $res['middleName'] . ' ' . $res['lastName']; ?></span></p> <a href="<?php echo SITEURL.'personal-information/edit/'.$res['id'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                        <p class="mb-0"><strong>Name:</strong> <span><?php echo $res['firstName'] . ' ' . $res['middleName'] . ' ' . $res['lastName']; ?></span></p> <a href="<?php echo SITEURL.'personal-information/'.$res['id'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
                                         <p class="mb-0"><strong>SSN:</strong> <span><?php echo $res['ssn']; ?></span></p> 
@@ -77,7 +100,7 @@
                                         <p class="mb-0"><strong>Date of Birth:</strong> <span><?php echo $db->date($res['dateOfBirth'], 'm/d/Y'); ?></span></p> 
                                        </div>
                                        <div class="d-flex align-items-center mb-2 flex-wrap">
-                                            <p class="mb-0"><strong>Address:</strong> <span><?php echo $res['street1']; ?></span></p> <a href="<?php echo SITEURL . 'address/edit/'.$res['id'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                            <p class="mb-0"><strong>Address:</strong> <span><?php echo $res['street1']; ?></span></p> <a href="<?php echo SITEURL . 'address/'.$res['id'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                             <p class="col-12 text-left p-0">
                                               <?php
                                                 if( !empty($res['street2']) && !is_null($res['street2']) )
@@ -87,13 +110,13 @@
                                             </p>
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>ID:</strong> <span><?php echo $res['idType']; ?> (<?php echo $res['identificationNumber']; ?>) <?php echo $res['idState']; ?></span></p> <a href="<?php echo SITEURL . 'identification-information/edit/'.$res['id'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                        <p class="mb-0"><strong>ID:</strong> <span><?php echo $res['idType']; ?> (<?php echo $res['identificationNumber']; ?>) <?php echo $res['idState']; ?></span></p> <a href="<?php echo SITEURL . 'identification-information/'.$res['id'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>Occupation:</strong>  <strong><?php echo $res['occupation']; ?></strong></p> <a href="<?php echo SITEURL.'tax-application/edit/'.$res['id'].'/'; ?>" class="d-block ml-auto">EDIT</a> 
+                                        <p class="mb-0"><strong>Occupation:</strong>  <strong><?php echo $res['occupation']; ?></strong></p> <a href="<?php echo SITEURL.'tax-application/'.$res['id'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a> 
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>PIN:</strong>  <strong><?php echo $res['pin'];//$res['identityTheftPin']; ?></strong></p>  <a href="<?php echo SITEURL.'tax-pin/edit/'.$res['id'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                        <p class="mb-0"><strong>PIN:</strong>  <strong><?php echo $res['pin'];//$res['identityTheftPin']; ?></strong></p>  <a href="<?php echo SITEURL.'tax-pin/'.$res['id'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                        </div>
                                      </div>
                                  </div>
@@ -106,7 +129,7 @@
                                       <h5 class="text-left mb-3"><strong>Spouse Information</strong></h5>
                                      <div class="text-center conatc-review">
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>Name:</strong> <span><?php echo $res['spouse']['firstName'] . ' ' . $res['spouse']['middleName'] . ' ' . $res['spouse']['lastName']; ?></span></p> <a href="<?php echo SITEURL.'spouse-information/edit/'.$res['spouse']['spouseId'].'/'.$res['spouse']['taxApplicationId'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                        <p class="mb-0"><strong>Name:</strong> <span><?php echo $res['spouse']['firstName'] . ' ' . $res['spouse']['middleName'] . ' ' . $res['spouse']['lastName']; ?></span></p> <a href="<?php echo SITEURL.'spouse-information/'.$res['spouse']['taxApplicationId'].'/'.$res['spouse']['spouseId'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
                                         <p class="mb-0"><strong>SSN:</strong> <span><?php echo $res['spouse']['ssn']; ?></span></p> 
@@ -115,7 +138,7 @@
                                         <p class="mb-0"><strong>Date of Birth:</strong> <span><?php echo $db->date($res['spouse']['dateOfBirth'], 'm/d/Y'); ?></span></p> 
                                        </div>
                                        <div class="d-flex align-items-center mb-2 flex-wrap">
-                                            <p class="mb-0"><strong>Address:</strong> <span><?php echo $res['spouse']['street1']; ?></span></p> <a href="<?php echo SITEURL.'spouse-address/edit/'.$res['spouse']['spouseId'].'/'.$res['spouse']['taxApplicationId'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                            <p class="mb-0"><strong>Address:</strong> <span><?php echo $res['spouse']['street1']; ?></span></p> <a href="<?php echo SITEURL.'spouse-address/'.$res['spouse']['taxApplicationId'].'/'.$res['spouse']['spouseId'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                             <p class="col-12 text-left p-0">
                                               <?php
                                                 if( !empty($res['spouse']['street2']) && !is_null($res['spouse']['street2']) )
@@ -125,13 +148,13 @@
                                             </p>
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>ID:</strong> <span><?php echo $res['spouse']['idType']; ?> (<?php echo $res['spouse']['identificationNumber']; ?>) <?php echo $res['spouse']['idState']; ?></span></p> <a href="<?php echo SITEURL.'spouse-identification-information/edit/'.$res['spouse']['spouseId'].'/'.$res['spouse']['taxApplicationId'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                        <p class="mb-0"><strong>ID:</strong> <span><?php echo $res['spouse']['idType']; ?> (<?php echo $res['spouse']['identificationNumber']; ?>) <?php echo $res['spouse']['idState']; ?></span></p> <a href="<?php echo SITEURL.'spouse-identification-information/'.$res['spouse']['taxApplicationId'].'/'.$res['spouse']['spouseId'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>Occupation:</strong>  <strong><?php echo $res['spouse']['occupation']; ?></strong></p> <a href="<?php echo SITEURL.'spouse-occupation/edit/'.$res['spouse']['spouseId'].'/'.$res['spouse']['taxApplicationId'].'/'; ?>" class="d-block ml-auto">EDIT</a> 
+                                        <p class="mb-0"><strong>Occupation:</strong>  <strong><?php echo $res['spouse']['occupation']; ?></strong></p> <a href="<?php echo SITEURL.'spouse-occupation/'.$res['spouse']['taxApplicationId'].'/'.$res['spouse']['spouseId'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a> 
                                        </div>
                                        <div class="d-flex align-items-center mb-2">
-                                        <p class="mb-0"><strong>PIN:</strong>  <strong><?php echo $res['spouse']['pin']; ?></strong></p> <a href="<?php echo SITEURL.'spouse-tax-pin/edit/'.$res['spouse']['spouseId'].'/'.$res['spouse']['taxApplicationId'].'/'; ?>" class="d-block ml-auto">EDIT</a>
+                                        <p class="mb-0"><strong>PIN:</strong>  <strong><?php echo $res['spouse']['pin']; ?></strong></p> <a href="<?php echo SITEURL.'spouse-tax-pin/'.$res['spouse']['taxApplicationId'].'/'.$res['spouse']['spouseId'].'/edit/'; ?>" class="d-block ml-auto">EDIT</a>
                                        </div>
                                      </div>
                                  </div>

@@ -102,6 +102,16 @@
           break;
       }
   }
+
+  if( $dateIssued == '0001-01-01' )
+    $dateIssued = '';
+  else
+    $dateIssued = $db->date($dateIssued, 'm/d/Y');
+
+  if( $dateExpired == '0001-01-01' )
+    $dateExpired = '';
+  else
+    $dateExpired = $db->date($dateExpired, 'm/d/Y');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,11 +129,26 @@
              <div class="row">
                  <div class="col-md-12">
                      <div class="contact-inner">
+                      <?php 
+                        if($mode=='add')
+                        {
+                          $progress = 54;
+                      ?>
+                        <div class="row mb-5">
+                          <div class="col-md-12">
+                            <div class="progress" style="height:2vw;">
+                              <div class="progress-bar" role="progressbar" style="width: <?php echo $progress; ?>%;" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress; ?>%</div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                        }
+                      ?>                      
                          <div class="row no-gutters">
                              <div class="col-md-7">
                                  <div class="contact-img text-center px-md-5">
                                      <div class="title mb-3">
-                                         <h3 class="text-left text-uppercase "><strong>SPOUSE'S Identification Information</strong><?php echo ($mode=='add')?'<span class="ml-5 pl-5 text-info">54%</span>':''; ?></h3>  
+                                         <h3 class="text-left text-uppercase "><strong>SPOUSE'S Identification Information</strong></h3>  
                                      </div>
                                      <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-spouse-identification-information/">
                                        <input type="hidden" name="mode" id="mode" value="<?php echo $mode; ?>">
@@ -161,13 +186,13 @@
                                            <div class="col-md-6">
                                                <div class="form-group"> 
                                                   <label for="dateIssued">Date Issued</label>
-                                                  <input type="text" autocomplete="off" name="dateIssued" id="dateIssued" data-date-format="mm/dd/yyyy" class="form-control datepicker" value="<?php echo $db->date($dateIssued, 'm/d/Y'); ?>" maxlength="10" placeholder="MM/DD/YYYY">
+                                                  <input type="text" autocomplete="off" name="dateIssued" id="dateIssued" data-date-format="mm/dd/yyyy" class="form-control datepicker" value="<?php echo $dateIssued; ?>" maxlength="10" placeholder="MM/DD/YYYY">
                                              </div>
                                            </div>
                                            <div class="col-md-6">
                                                <div class="form-group"> 
                                                   <label for="dateExpired">Date Expired</label>
-                                                  <input type="text" autocomplete="off" name="dateExpired" id="dateExpired" data-date-format="mm/dd/yyyy" class="form-control datepicker" value="<?php echo $db->date($dateExpired, 'm/d/Y'); ?>" maxlength="10" placeholder="MM/DD/YYYY">
+                                                  <input type="text" autocomplete="off" name="dateExpired" id="dateExpired" data-date-format="mm/dd/yyyy" class="form-control datepicker" value="<?php echo $dateExpired; ?>" maxlength="10" placeholder="MM/DD/YYYY">
                                              </div>
                                            </div>
                                        </div>

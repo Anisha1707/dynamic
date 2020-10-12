@@ -2,7 +2,13 @@
     include('connect.php'); 
     $db->checkLogin();
 
-    $querystring = '?taxApplicationId='.$_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'];
+    $taxApplicationID = $_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'];
+
+    if( isset($_REQUEST['taxApplicationID']) && !is_null($_REQUEST['taxApplicationID']) && !empty($_REQUEST['taxApplicationID']) )
+      $taxApplicationID = $_REQUEST['taxApplicationID'];
+
+    //$querystring = '?taxApplicationId='.$_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'];
+    $querystring = '?taxApplicationId='.$taxApplicationID;
 
     $curl = curl_init();
 
@@ -26,9 +32,9 @@
     curl_close($curl);
 
     $res = json_decode($response, true);
-
-    file_put_contents(SITE_ABSOLUTE_PATH.'upload/PDF/download.pdf', $response);
+    $time = time();
+    file_put_contents(SITE_ABSOLUTE_PATH.'upload/PDF/download_'.$time.'.pdf', $response);
 ?>
 <script type="text/javascript">
-    window.location.href = "<?php echo SITEURL.'upload/PDF/download.pdf'; ?>";
+    window.location.href = "<?php echo SITEURL.'upload/PDF/download_'.$time.'.pdf'; ?>";
 </script>

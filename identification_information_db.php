@@ -85,7 +85,7 @@
 		if( $mode == 'add' )
 			$db->location(SITEURL.'identification-information/');
 		else
-			$db->location(SITEURL.'identification-information/edit/'.$taxApplicationID.'/');
+			$db->location(SITEURL.'identification-information/'.$taxApplicationID.'/edit/');
 		exit;
 	}
 ?>

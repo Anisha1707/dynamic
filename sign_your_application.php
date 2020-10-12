@@ -26,11 +26,25 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="contact-inner">
+                      <?php 
+                        {
+                          $progress = 90;
+                      ?>
+                        <div class="row mb-5">
+                          <div class="col-md-12">
+                            <div class="progress" style="height:2vw;">
+                              <div class="progress-bar" role="progressbar" style="width: <?php echo $progress; ?>%;" aria-valuenow="<?php echo $progress; ?>" aria-valuemin="0" aria-valuemax="100"><?php echo $progress; ?>%</div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php
+                        }
+                      ?>                      
                         <div class="row no-gutters">
                             <div class="col-md-7">
                                 <div class="contact-img text-center px-md-5"> 
                                     <div class="title mb-3">
-                                        <h3 class="text-left"><strong>SIGN YOUR APPLICATION</strong><?php echo '<span class="ml-5 pl-5 text-info">90%</span>'; ?></h3>
+                                        <h3 class="text-left"><strong>SIGN YOUR APPLICATION</strong></h3>
                                         <p class="text-left">Please sign in the box below so your signature can be applied to the application. Also, We need a copy of your initials to apply as well.</p>                                      
                                     </div>
                                     <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-sign-your-application/" enctype="multipart/form-data" class="text-left">

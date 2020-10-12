@@ -72,7 +72,7 @@
 			if( $mode == 'add' )
 				$db->location(SITEURL.'tax-pin/');
 			else
-				$db->location(SITEURL.'tax-pin/edit/'.$taxApplicationID.'/');
+				$db->location(SITEURL.'tax-pin/'.$taxApplicationID.'/edit/');
 			exit;
 		}		
 	}
