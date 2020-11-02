@@ -13,6 +13,8 @@ RewriteRule ^404/?$ 404.php [NC,L]
 #RewriteRule ^apanel/?$ apanel/index.php [NC,L]
 RewriteRule ^index/?$ index.php [NC,L]
 
+RewriteRule ^client?$ client/index.php [NC,L]
+
 RewriteRule ^customer-portal/?$ customer_portal.php [NC,L]
 RewriteRule ^family-question/?$ family_question.php [NC,L]
 RewriteRule ^family-question-dependent/?$ family_question_dependent.php [NC,L]
@@ -27,6 +29,7 @@ RewriteRule ^download/?$ download.php [NC,L]
 RewriteRule ^download/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ download.php?taxApplicationID=$1&mode=$2 [NC,L]
 
 RewriteRule ^signup/?$ signup.php [NC,L]
+RewriteRule ^signup/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ signup.php?fran=$1&prep=$2 [NC,L]
 RewriteRule ^process-signup/?$ signup_db.php [NC,L]
 RewriteRule ^confirmation/?$ confirmation.php [NC,L]
 RewriteRule ^process-confirmation/?$ confirmation_db.php [NC,L]
@@ -44,6 +47,8 @@ RewriteRule ^process-change-contact/?$ change_contact_db.php [NC,L]
 
 RewriteRule ^tax-application/?$ tax_application.php [NC,L]
 RewriteRule ^process-tax-application/?$ tax_application_db.php [NC,L]
+RewriteRule ^tax-application-client/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ tax_application_client.php?fran=$1&prep=$2 [NC,L]
+RewriteRule ^process-tax-application-client/?$ tax_application_client_db.php [NC,L]
 RewriteRule ^personal-information/?$ personal_information.php [NC,L]
 RewriteRule ^process-personal-information/?$ personal_information_db.php [NC,L]
 RewriteRule ^address/?$ address.php [NC,L]
@@ -94,6 +99,12 @@ RewriteRule ^process-tax-documents/?$ tax_documents_db.php [NC,L]
 
 RewriteRule ^sign-your-application/?$ sign_your_application.php [NC,L]
 RewriteRule ^process-sign-your-application/?$ sign_your_application_db.php [NC,L]
+
+RewriteRule ^chat/([A-Za-z0-9-_]+)/?$ chat.php?threadID=$1 [NC,L]
+RewriteRule ^process-chat/?$ chat_db.php [NC,L]
+
+RewriteRule ^tickets/?$ tickets.php [NC,L]
+RewriteRule ^ticket-information/?$ ticket_information.php [NC,L]
 
 
 
