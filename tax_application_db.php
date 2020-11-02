@@ -44,11 +44,20 @@
 	}
 	else
 	{
+		$franchiseId = 0;
+		if( isset($_SESSION['franchiseId']) && $_SESSION['franchiseId'] > 0 )
+			$franchiseId = $_SESSION['franchiseId'];
+		$preparerId = 0;
+		if( isset($_SESSION['preparerId']) && $_SESSION['preparerId'] > 0 )
+			$preparerId = $_SESSION['preparerId'];
+
 		$arfields = array(
 			'year' => (int) $year,
 			'occupation' => $occupation,
-			'franchiseId' => (int) 0,
-			'prepareId' => (int) 0,
+			'franchiseId' => (int) $franchiseId,
+			'prepareId' => (int) $preparerId,
+			'franchiseCode' => $_SESSION['franchiseCode'],
+			'preparerCode' => $_SESSION['preparerCode'],
 		);
 
 		$data = json_encode($arfields);

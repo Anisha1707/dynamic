@@ -10,7 +10,8 @@
         </div>
     </div>
 </header>
-<div class="navbar">
+<div class="container">
+<div class="navbar mt-4">
 <?php
     if( $page == 'Customer Portal' && isset($_SESSION[SESS_PRE.'_USER_TOKEN']) && !empty($_SESSION[SESS_PRE.'_USER_TOKEN']) ) {
 ?>    
@@ -25,10 +26,12 @@
       <a href="<?php echo SITEURL; ?>change-password/">Update Password</a>
       <a href="<?php echo SITEURL; ?>change-profile/">Update Profile</a>
       <a href="<?php echo SITEURL; ?>change-contact/">Update Contact Information</a>
+      <a href="<?php echo SITEURL; ?>tickets/">Tickets</a>
       <a href="<?php echo SITEURL; ?>logout/">Logout</a>
     </div>
   </div>
 <?php
     }
 ?>
+</div>
 </div>

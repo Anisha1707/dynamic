@@ -32,6 +32,9 @@ class Functions
 
 		unset($_SESSION[SESS_PRE.'_EXPIRED']);
 		unset($_SESSION[SESS_PRE.'_REFRESH_EXPIRED']);
+
+		unset($_SESSION['franchiseCode']);
+		unset($_SESSION['preparerCode']);
 	}
 
 	public function location($redirectPageName=null) // Location

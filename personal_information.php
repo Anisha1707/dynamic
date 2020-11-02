@@ -45,8 +45,11 @@
     $ssn = $res['ssn'];
     $dateOfBirth = $res['dateOfBirth'];
 
-    $ardob = explode('-', $dateOfBirth);
-    $dateOfBirth = $ardob[1] . '/' . $ardob[2] . '/' . $ardob[0];
+    if( !empty($dateOfBirth) )
+    {
+      $ardob = explode('-', $dateOfBirth);
+      $dateOfBirth = $ardob[1] . '/' . $ardob[2] . '/' . $ardob[0];
+    }
   }
 ?>
 <!DOCTYPE html>

@@ -1,0 +1,17 @@
+RewriteOptions inherit
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks
+Options +SymLinksIfOwnerMatch
+RewriteEngine On
+
+## Force HTTP to HTTPS ##
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE] 
+
+RewriteRule ^404/?$ 404.php [NC,L]
+
+RewriteRule ^client?$ client/index.php [NC,L]
+#RewriteRule ^client/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ client/index.php?fran=$1&prep=$2 [NC,L]
+RewriteRule ^register/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ register.php?fran=$1&prep=$2 [NC,L]
+RewriteRule ^process-register/?$ register_db.php [NC,L]
+RewriteRule ^thank-you/?$ thank_you.php [NC,L]

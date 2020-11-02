@@ -45,5 +45,12 @@
 	//echo $date;
 	$deleted = delete_older_than($dir.'upload/PDF', 1800);
   	$txt = "Deleted " . count($deleted) . " Old PDF(s):<br />" . implode("<br />", $deleted);
+
+	$deleted = delete_older_than($dir.'upload/initials', 1800);
+  	$txt .= "<br /><br />Deleted " . count($deleted) . " Old Initial(s):<br />" . implode("<br />", $deleted);
+
+	$deleted = delete_older_than($dir.'upload/signature', 1800);
+  	$txt .= "<br /><br />Deleted " . count($deleted) . " Old Signature(s):<br />" . implode("<br />", $deleted);
+
   	echo $txt . '<br /><br />';
 ?>

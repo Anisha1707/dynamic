@@ -44,6 +44,52 @@
                             <div class="col-md-7">
                                 <div class="contact-img text-center px-md-5"> 
                                     <div class="title mb-3">
+                                        <h3 class="text-left"><strong>TPB's TAX PREPARATION, FILING, AND FEES AUTHORIZATION</strong></h3>
+                                        <p class="note">I hereby authorize <?php echo SITETITLE; ?>, LLC to prepare and file on my behalf, federal and/or state income
+                                          taxes. I understand by signing and submitting the application, I am submitting to the process of tax
+                                          preparation by <?php echo SITETITLE; ?> and its terms and conditions for providing such services. I agree to
+                                          pay a $50 E-file fee, and any additional tax preparation fees associated with the preparation and filing of
+                                          additional forms, should such forms be required. I authorize <?php echo SITETITLE; ?> to deduct all fees from
+                                          my tax refund as payment for services rendered, or agree to pay <?php echo SITETITLE; ?> invoiced amount
+                                          should my returns show a balance due.</p>
+                                        <p class="note">By signing this Authorization, I acknowledge that the information provided is true and factual and I bear
+                                          the sole responsibility to provide all supporting documentation as in, but not limited to the following: </p>
+                                        <ul class="note text-left">
+                                          <li>Taxpayer's Driver's License/State ID (paper form from DMV is acceptable)</li>
+                                          <li>Taxpayer's Social Security Card (paper form from SSA is acceptable)</li>
+                                        </ul>
+                                        <p class="note">If applicable:</p>
+                                        <ul class="note text-left">
+                                          <li>Spouse's Driver's License/State ID (paper form from DMV is acceptable)</li>
+                                          <li>Spouse's Social Security Card (paper form from SSA is acceptable)</li>
+                                          <li>Dependents being claimed Social Security Cards (paper form from SSA is acceptable)</li>
+                                          <li>Form W-2</li>
+                                          <li>Form 1099</li>
+                                          <li>Schedule C Declaration (Request Form from TPB Preparer)</li>
+                                          <li>Proof of Head of Household (Request Form from TPB Preparer)</li>
+                                        </ul>
+                                        <h6 class="text-left"><strong>Electronic Signature Agreement</strong></h6>
+                                        <div class="row">
+                                          <div class="col-md-3">
+                                            <div class="form-group">
+                                              <input type="checkbox" name="agree" id="agree" class="d-inline">  
+                                              <label class="d-inline">I Accept</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-9" style="text-align: left; line-height: 1.2;">
+                                            <small class="agree">By checking the "I Accept" box, you are signing this Authorization electronically. You
+                                              agree your electronic signature is the legal equivalent of your manual signature on
+                                              this Authorization. By selecting "I Accept" you consent to be legally bound by this
+                                              Authorization's terms and conditions. You further agree that no certification
+                                              authority or other third party verification is necessary to validate your E-Signature
+                                              and that the lack of such certification or third party verification will not in any way
+                                              affect the enforceability of your E-Signature.</small>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div id="showform" style="display: none;">
+                                      <hr>
+                                    <div class="title mb-3">
                                         <h3 class="text-left"><strong>SIGN YOUR APPLICATION</strong></h3>
                                         <p class="text-left">Please sign in the box below so your signature can be applied to the application. Also, We need a copy of your initials to apply as well.</p>                                      
                                     </div>
@@ -63,6 +109,7 @@
                                             </div>
                                         </div>
                                     </form>
+                                    </div>
                                  </div>
                              </div>
                              <div class="col-md-5">
@@ -84,6 +131,13 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('.loader').hide();
+    });
+
+    $('#agree').on('change', function() {
+      if( $(this).prop('checked') )
+        $('#showform').show();
+      else
+        $('#showform').hide();
     });
 
     $(function(){

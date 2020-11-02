@@ -92,10 +92,21 @@ section.login-banner label {
     z-index: 9;
 }
 
+.chat-msg {
+  position: relative;
+}
+.chat-msg span.black {
+  position: absolute;
+  right: 0;
+}
+
 
 .navbar {
   /*overflow: hidden; */
   float: right;
+ /* padding-right: 103px;*/
+  padding: 0;
+  margin: 0 -15px;
 }
 
 .navbar a {
@@ -154,6 +165,26 @@ section.login-banner label {
   display: block;
 }
 
+.note {
+  font-size: 80%; 
+  font-weight: 400;
+  text-align: justify;
+}
+
+.agree {
+  font-size: 0.6rem;
+  text-align: justify;
+}
+
+.frm-chat {
+  background-color: #f5f5dc;  /*beige*/
+  margin: 5px;
+  padding: 15px;
+}
+.unread {
+  color: #b8860b;
+}
+
 
 @media screen and (max-width: 767px){
     .logo h1 {
@@ -200,4 +231,19 @@ section.login-banner label {
       .contact-img img {
         display: none;
     }
+   /* .navbar {
+      padding-right: 30px;
+    }*/
 }
+/*
+@media screen and (min-width: 768px and max-width: 1023px){
+  .navbar {
+      padding-right: 25px;
+    }
+}
+
+@media screen and (min-width: 1024px and max-width: 1396px){
+  .navbar {
+      padding-right: 30px;
+    }
+}*/

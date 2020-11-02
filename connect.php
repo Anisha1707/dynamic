@@ -1,7 +1,8 @@
 <?php
 	error_reporting(0);
 	session_start();
-	date_default_timezone_set('America/Los_Angeles');
+	//date_default_timezone_set('America/Los_Angeles');
+	date_default_timezone_set('Asia/Kolkata');
 	ini_set('default_charset', 'UTF-8');
 	ini_set('max_execution_time', 0);
 

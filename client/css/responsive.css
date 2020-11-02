@@ -1,0 +1,78 @@
+@media screen and (max-width: 1199px){
+	button.a-link{
+		width: 60%;
+	}
+	button.a-link, button.a-link:hover, button.a-link:focus{
+	    	width: 60%;
+	}
+	.banner-reg-area{
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 991px){
+	
+	.logo-area {
+	    text-align: center;
+	}
+	.a-link, .a-link:hover, .a-link:focus{
+		width: auto;
+	}
+	h2.sub-heading{
+		font-size: 22px;
+	}
+	.reg-form {
+		width: 100%;
+		margin: 10px auto;
+	}
+
+
+}
+@media screen and (max-width: 767px){
+
+	.thankyou-video
+	{
+		width: 70%;
+	}
+	button.a-link {
+	    width: 100%;
+	}
+    button.a-link, button.a-link:hover, button.a-link:focus{
+	    	width: 100%;
+	}
+	h3.heading{
+		ont-size: 28px;
+	}
+	h2.sub-heading{
+		font-size: 22px;
+		margin: 0 0 15px 0;
+	}
+	p.sub-text{
+		font-size: 16px;
+	}
+	.a-link, .a-link:hover, .a-link:focus{
+		width: 100%;
+		display: block;
+	}
+	.a-link.ml-3{
+		margin: 0 !important;
+		margin-top: 10px !important;
+	}
+
+	
+}
+
+@media screen and (max-width: 575px){
+	.thankyou-video {
+	    width: 80%;
+	}
+	img.img-logo {
+	    max-width: 150px;
+	}
+	h2.sub-heading{
+		margin: 0 0 15px 0;
+	}
+	p.sub-text{
+		line-height: normal;
+	}
+}

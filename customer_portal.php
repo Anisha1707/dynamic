@@ -34,12 +34,16 @@
     $db->location(SITEURL);
     exit;
   }
+
+  $_SESSION['franchiseId'] = $res['franchiseId'];
+  $_SESSION['preparerId'] = $res['preparerId'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title><?php echo SITENAME; ?></title>
     <?php include('front_include/css.php'); ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo SITEURL; ?>css/chat.css">
 </head>
 <body>
   <div class="loader"></div>
@@ -63,11 +67,9 @@
                                   $n = count($res['taxApplications']);
                                   for($i=0; $i<$n; $i++ )
                                   {
-                                    //echo '====' . $percentage_page[$res['taxApplications'][$i]['percentComplete']] . '====';
                                 ?>
                                     <li class="d-flex text-left align-items-center mb-3">
                                       <p class="mr-3 mb-0"><a href="<?php echo SITEURL.$percentage_page[$res['taxApplications'][$i]['percentComplete']].$res['taxApplications'][$i]['taxApplicationId'].'/edit/'; ?>"><?php echo $res['taxApplications'][$i]['taxYear']; ?></a></p>
-                                      <!-- <p class="mr-3 mb-0"><a href="javascript:void(0);"><?php echo $res['taxApplications'][$i]['taxYear']; ?></a></p> -->
                                       <span class="text-right w-100">
                                       <?php 
                                         if($res['taxApplications'][$i]['isFiled'])
@@ -76,9 +78,9 @@
                                           echo '<span class="black" title="Assigned"> <i class="fas fa-user-tie mr-2"></i></span> ';
                                         if($res['taxApplications'][$i]['isViewed'])
                                           echo '<span class="black" title="Viewed"> <i class="fas fa-eye mr-2"></i></span> ';
-                                        if(! $res['taxApplications'][$i]['isCompleted'])
+                                        //if(! $res['taxApplications'][$i]['isCompleted'])
+                                        if(! $res['taxApplications'][$i]['isFiled'])
                                         {
-                                          //echo '<span class="ml-auto black" title="Upload"> <i class="fas fa-file-upload mr-2"></i></span> ';
                                           echo '<span class="ml-auto black" title="Upload" data-toggle="modal" data-target="#modal-upload" onclick="show_upload('.$res['taxApplications'][$i]['taxApplicationId'].');"> <i class="fas fa-file-upload mr-2"></i></span> ';
                                         }
                                       ?>
@@ -107,9 +109,11 @@
                                   for($i=0; $i<$n; $i++ )
                                   {
                                 ?>
-                                   <li class="d-flex text-left align-items-center mb-3">
+                                   <li class="d-flex text-left align-items-center chat-msg mb-3">
                                         <i class="fas fa-envelope"></i>
-                                        <p class="ml-3 mb-0"><?php echo $res['userMessages'][$i]['threadTitle']; ?></p> 
+                                        <p class="ml-3 mb-0"><?php echo $res['userMessages'][$i]['threadTitle']; ?>
+                                        </p> 
+                                        <span class="black text-right w-80" title="Chat" data-toggle="modal" data-target="#modal-chat" onclick="show_chat('<?php echo $res['userMessages'][$i]['threadId']; ?>');"> <i class="fas fa-comments mr-2"></i></span>
                                    </li>
                                 <?php
                                   }
@@ -168,6 +172,10 @@
          <div class="modal-dialog  modal-dialog-centered"></div>
       </div>
 
+      <div class="modal" id="modal-chat">
+         <div class="modal-dialog  modal-dialog-centered"></div>
+      </div>
+
     <?php include('front_include/footer.php'); ?>       
 </div>
 <?php include('front_include/js.php'); ?>
@@ -191,6 +199,23 @@
         success: function(data) {
            //alert(data);
            $('#modal-upload').html(data).modal('show');
+           $(".loader").hide(); 
+        }               
+     });
+  }
+
+  function show_chat(threadID)
+  {
+     $.ajax({
+        url: "<?php echo SITEURL; ?>chat/"+threadID+"/",
+        type: 'post',
+        data: {},
+        beforeSend: function(){
+             $(".loader").show();
+        }, 
+        success: function(data) {
+           //alert(data);
+           $('#modal-chat').html(data).modal('show');
            $(".loader").hide(); 
         }               
      });

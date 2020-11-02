@@ -215,6 +215,13 @@
 				  icon: 'error',
 				  confirmButtonText: 'Okay'
 				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Chat_Msg_Success') { ?>
+				Swal.fire({
+				  title: 'Success!',
+				  html: 'Your message has been sent successfully.',
+				  icon: 'success',
+				  confirmButtonText: 'Okay'
+				});
 			<?php unset($_SESSION['MSG']); } else if( isset($_SESSION['MSG']) && !empty($_SESSION['MSG']) ) { ?>
 				//$.notify({message: "<?php echo addslashes($_SESSION['MSG']); ?>"},{type: 'danger'});
 				Swal.fire({

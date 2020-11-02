@@ -88,8 +88,8 @@
                                  <div class="contact-img text-center px-md-5">
                                      <div class="title mb-3">
                                          <h3 class="text-left w-100"><strong>TAX APPLICATION</strong></h3>
-                                         <p class="text-left">We are going to ask you a series of questions to gather information regarding the information of yourself, spouse/dependents if applicable and any information needed for your occupation/job</p>
-                                         <p class="text-left">this information will be used by our tax professionals in preparing your taxes and take security very seriously.</p>
+                                         <p class="text-left">We are going to ask you a series of questions to gather information regarding the information of yourself, spouse/dependents if applicable and any information needed for your occupation/job.</p>
+                                         <p class="text-left">This information will be used by our tax professionals in preparing your taxes and take security very seriously.</p>
                                          <p class="text-left">Let's get started!</p> 
                                      </div>
                                      <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-tax-application/">

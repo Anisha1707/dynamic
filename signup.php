@@ -1,4 +1,14 @@
-<?php include('connect.php'); ?>
+<?php 
+    include('connect.php'); 
+
+    $_SESSION['franchiseCode'] = '';
+    $_SESSION['preparerCode'] = '';
+
+    if( isset($_REQUEST['fran']) && !is_null($_REQUEST['fran']) && !empty($_REQUEST['fran']) )
+        $_SESSION['franchiseCode'] = $_REQUEST['fran'];
+    if( isset($_REQUEST['prep']) && !is_null($_REQUEST['prep']) && !empty($_REQUEST['prep']) )
+        $_SESSION['preparerCode'] = $_REQUEST['prep'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
