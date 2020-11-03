@@ -184,6 +184,9 @@ section.login-banner label {
 .unread {
   color: #b8860b;
 }
+.chat-dialog.modal-dialog {
+  max-width: 720px;
+}
 
 
 @media screen and (max-width: 767px){
@@ -235,8 +238,7 @@ section.login-banner label {
       padding-right: 30px;
     }*/
 }
-/*
-@media screen and (min-width: 768px and max-width: 1023px){
+/*@media screen and (min-width: 768px and max-width: 1023px){
   .navbar {
       padding-right: 25px;
     }

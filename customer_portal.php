@@ -173,7 +173,7 @@
       </div>
 
       <div class="modal" id="modal-chat">
-         <div class="modal-dialog  modal-dialog-centered"></div>
+         <div class="modal-dialog  modal-dialog-centered chat-dialog"></div>
       </div>
 
     <?php include('front_include/footer.php'); ?>       
