@@ -40,7 +40,7 @@
                                         </div>
                                         <button type="submit" class="btn btn-primary">LOGIN</button>
                                         <div class="text-center pt-3">
-                                            <a href="javascript:void(0)">Forgot Password?</a>
+                                            <a href="<?php echo SITEURL; ?>forgot-password/">Forgot Password?</a>
                                             <div class="signup mt-3">
                                                 <h3><strong>Don't have an account?</strong></h3>
                                                 <a href="<?php echo SITEURL; ?>signup/">Create your account</a>

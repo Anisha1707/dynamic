@@ -20,20 +20,8 @@
 	define('SITE_ABSOLUTE_PATH', $SITE_ABSOLUTE_PATH);
 	define('CLIENTURL', SITEURL.'client/');
 	define('SITENAME','TAX PAYERS BUREAU CUSTOMER PORTAL');
-	//define('SITETITLE','TAX PAYERS BUREAU');
 	define('SITETITLE','Tax Payers Bureau');
 	define('CLIENT_HEADING', "Welcome to Tax Payers Bureau's Customer Portal");
-	//define('ADMINTITLE','TAX PAYERS BUREAU Apanel');
-	//define('CURR','&dollar;');				
-
-	// define("SITEMAIL", "info@finitycodes.com");
-	// define("SITEPHONE", "(123) 456-7890");
 	define("SESS_PRE", "TPB");
-	//define("CUR", "$");
-	//define("ISMAIL", true);
-
 	define("API_URL", "https://api.tpbmobile.com/v1/api/");
-
-	//define("DOCS","upload/docs/");
-
 ?>

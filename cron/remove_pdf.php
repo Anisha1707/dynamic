@@ -4,9 +4,9 @@
 	It will remove all the files created prior half an hour (1800 seconds).
 	*/
 
-	$dir = "D:/xampp/htdocs/torrence/";	// path local
+	//$dir = "D:/xampp/htdocs/torrence/";	// path local
 	//$dir = "/home/finityco/public_html/works/tax_payers_bureau_customer_portal/";	// path stagging
-	//$dir = "/home/tax_payers_bureau_customer_portal/public_html/";	// path live
+	$dir = "/home/tax_payers_bureau_customer_portal/public_html/";	// path live
 
 	include($dir . 'connect.php');
 

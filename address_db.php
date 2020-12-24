@@ -57,9 +57,8 @@
 	//print '<pre>'; print_r($res); exit;
 
     if( $httpcode == 200 )
-    //if( strtolower($res['status']) == 'success' )
     {
-    	$_SESSION['MSG'] = 'Address_Success';
+    	//$_SESSION['MSG'] = 'Address_Success';
     	if( $mode == 'add' )
 			$db->location(SITEURL.'identification-information/');
 		else

@@ -91,7 +91,7 @@
     if( $httpcode == 200 )
     //if( strtolower($res['status']) == 'success' )
     {
-    	$_SESSION['MSG'] = 'Spouse_Info_Success';
+    	//$_SESSION['MSG'] = 'Spouse_Info_Success';
     	if( $mode == 'add' )
     	{
     		$_SESSION[SESS_PRE.'_SPOUSE_ID'] = $res['spouseId'];

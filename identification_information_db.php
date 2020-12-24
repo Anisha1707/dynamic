@@ -65,7 +65,7 @@
     if( $httpcode == 200 )
     //if( strtolower($res['status']) == 'success' )
     {
-    	$_SESSION['MSG'] = 'Identification_Success';
+    	//$_SESSION['MSG'] = 'Identification_Success';
 		//$db->location(SITEURL.'family-question/');
 		if( $mode == 'add' )
 			$db->location(SITEURL.'tax-pin/');

@@ -113,8 +113,8 @@
         <div class="chat-container <?php echo ($msg['unread'])?' unread':''; ?>">
           <img src="<?php echo SITEURL; ?>images/tpb-avatar.png" alt="<?php echo $msg['displayName']; ?>" title="<?php echo $msg['displayName']; ?>" style="width:100%;">
           <?php echo ($flg)?'<p>':''; echo $msg['body']; echo ($flg)?'</p>':''; ?>
-          <span class="time-right"><?php echo $msg['displayName']; ?><br />
-          <?php echo $dt; ?></span>
+          <span class="time-left">From <?php echo $msg['displayName']; ?></span>
+          <span class="time-right"><?php echo $dt; ?></span>
         </div>
       <?php
           }
@@ -124,8 +124,8 @@
         <div class="chat-container darker <?php echo ($msg['unread'])?' unread':''; ?>">
           <img src="<?php echo SITEURL; ?>images/client-avatar.png" alt="<?php echo $msg['displayName']; ?>" title="<?php echo $msg['displayName']; ?>" class="right" style="width:100%;">
           <?php echo ($flg)?'<p>':''; echo $msg['body']; echo ($flg)?'</p>':''; ?>
-          <span class="time-left"><?php echo $msg['displayName']; ?><br />
-          <?php echo $dt; ?></span>
+          <span class="time-left"><?php echo $dt; ?></span>
+          <span class="time-right">From <?php echo $msg['displayName']; ?></span>
         </div>
       <?php
           }

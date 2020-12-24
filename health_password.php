@@ -18,9 +18,13 @@
                              <div class="col-md-7">
                                  <div class="contact-img text-center px-md-5">
                                      <div class="title mb-3">
-                                         <h3 class="text-left">UPDATE PASSWORD</h3>
+                                         <h3 class="text-left">HEALTH PASSWORD</h3>
                                      </div>
-                                     <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-change-password/">
+                                     <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-health-password/">
+                                        <!-- <div class="form-group"> 
+                                            <label for="healthPassword">Health Password</label>
+                                            <input type="password" name="healthPassword" id="healthPassword" maxlength="50" class="form-control" placeholder="Health Password"> 
+                                        </div> -->
                                         <div class="form-group"> 
                                             <label for="currentPassword">Current Password</label>
                                             <input type="password" name="currentPassword" id="currentPassword" maxlength="50" class="form-control" placeholder="Current Password"> 
@@ -60,14 +64,16 @@
         $("#frm").validate({
             ignore: "",
             rules: {
-                currentPassword:{required:true, minlength:8, pwcheck:true},
+                //currentPassword:{required:true, minlength:8, pwcheck:true},
+                currentPassword:{required:true},
                 newPassword:{required:true, equalTo:"#confirmPassword", minlength:8, pwcheck:true},
                 confirmPassword:{required:true, equalTo:"#newPassword", minlength:8, pwcheck:true},
             },
             messages: { 
-                currentPassword:{required:"Please enter current password.", minlength:"Password must be atleast 8 characters long.", pwcheck:"Password must have atleast one uppercase, one lowercase and one numeric character."},
-                newPassword:{required:"Please enter new password.", equalTo:"Your new passwords need to match.", minlength:"Password must be atleast 8 characters long.", pwcheck:"Password must have atleast one uppercase, one lowercase and one numeric character."},
-                confirmPassword:{required:"Please enter confirm password.", equalTo:"Your new passwords need to match.", minlength:"Password must be atleast 8 characters long.", pwcheck:"Password must have atleast one uppercase, one lowercase and one numeric character."},
+                //currentPassword:{required:"Please enter current password.", minlength:"Password must be atleast 8 characters long.", pwcheck:"Password must have atleast one uppercase, one lowercase and one numeric character."},
+                currentPassword:{required:"Please enter current password."},
+                newPassword:{required:"Please enter new password.", minlength:"Password must be atleast 8 characters long.", pwcheck:"Password must have atleast one uppercase, one lowercase and one numeric character.", equalTo:"Your new passwords need to match."},
+                confirmPassword:{required:"Please enter confirm password.", minlength:"Password must be atleast 8 characters long.", pwcheck:"Password must have atleast one uppercase, one lowercase and one numeric character.", equalTo:"Your new passwords need to match."},
             },
             errorPlacement: function(error, element) {
                 error.insertAfter(element);

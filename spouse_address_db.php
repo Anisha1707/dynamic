@@ -64,7 +64,7 @@
     if( $httpcode == 200 )
     //if( strtolower($res['status']) == 'success' )
     {
-    	$_SESSION['MSG'] = 'Spouse_Address_Success';
+    	//$_SESSION['MSG'] = 'Spouse_Address_Success';
     	if( $mode == 'add' )
 			$db->location(SITEURL.'spouse-identification-information/');
 		else

@@ -35,6 +35,10 @@ RewriteRule ^confirmation/?$ confirmation.php [NC,L]
 RewriteRule ^process-confirmation/?$ confirmation_db.php [NC,L]
 RewriteRule ^login/?$ login.php [NC,L]
 RewriteRule ^process-login/?$ login_db.php [NC,L]
+RewriteRule ^forgot-password/?$ forgot_password.php [NC,L]
+RewriteRule ^process-forgot-password/?$ forgot_password_db.php [NC,L]
+RewriteRule ^reset-password/?$ reset_password.php [NC,L]
+RewriteRule ^process-reset-password/?$ reset_password_db.php [NC,L]
 
 RewriteRule ^change-username/?$ change_username.php [NC,L]
 RewriteRule ^process-change-username/?$ change_username_db.php [NC,L]
@@ -104,7 +108,17 @@ RewriteRule ^chat/([A-Za-z0-9-_]+)/?$ chat.php?threadID=$1 [NC,L]
 RewriteRule ^process-chat/?$ chat_db.php [NC,L]
 
 RewriteRule ^tickets/?$ tickets.php [NC,L]
-RewriteRule ^ticket-information/?$ ticket_information.php [NC,L]
+RewriteRule ^create-ticket/?$ create_ticket.php [NC,L]
+RewriteRule ^process-create-ticket/?$ create_ticket_db.php [NC,L]
+RewriteRule ^ticket-information/([A-Za-z0-9-_]+)/?$ ticket_information.php?ticketID=$1 [NC,L]
+RewriteRule ^process-ticket-information/?$ ticket_information_db.php [NC,L]
+
+RewriteRule ^health-username/?$ health_username.php [NC,L]
+RewriteRule ^process-health-username/?$ health_username_db.php [NC,L]
+RewriteRule ^health-password/?$ health_password.php [NC,L]
+RewriteRule ^process-health-password/?$ health_password_db.php [NC,L]
+RewriteRule ^health-disclaimer/?$ health_disclaimer.php [NC,L]
+RewriteRule ^process-health-disclaimer/?$ health_disclaimer_db.php [NC,L]
 
 
 

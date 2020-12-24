@@ -62,7 +62,7 @@
     if( $httpcode == 200 )
     //if( strtolower($res['status']) == 'success' )
     {
-    	$_SESSION['MSG'] = 'Spouse_Occupation_Success';
+    	//$_SESSION['MSG'] = 'Spouse_Occupation_Success';
 		//$db->location(SITEURL.'family-question-dependent/');
 		if( $mode == 'add' )
 			$db->location(SITEURL.'spouse-tax-pin/');

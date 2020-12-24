@@ -43,6 +43,37 @@
 		$db->setSessionExpiration();
     }
 
+	if( isset($res['healthCheck']) && !empty($res['healthCheck']) && !is_null($res['healthCheck']) )
+	{
+		if( !$res['healthCheck']['passwordHealthGood'] )
+			$_SESSION[SESS_PRE.'_HEALTH_PASSWORD'] = 1;
+		if( !$res['healthCheck']['disclaimerHealthGood'] )
+			$_SESSION[SESS_PRE.'_HEALTH_DISCLAIMER'] = 1;
+
+		if( !$res['healthCheck']['usernameHealthGood'] )
+		{
+			$_SESSION[SESS_PRE.'_HEALTH_USERNAME'] = 1;
+			$db->location(SITEURL.'health-username/');
+			exit;
+		}
+		else if( !$res['healthCheck']['passwordHealthGood'] )
+		{
+			$db->location(SITEURL.'health-password/');
+			exit;
+		}
+		else if( !$res['healthCheck']['disclaimerHealthGood'] )
+		{
+			$db->location(SITEURL.'health-disclaimer/');
+			exit;
+		}
+		else
+		{
+			$db->location(SITEURL.'customer-portal/');
+			exit;
+		}
+
+	}
+
 	if( isset($res['token']) && !empty($res['token']) )
 	{
 		$db->location(SITEURL.'customer-portal/');

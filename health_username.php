@@ -18,11 +18,11 @@
                              <div class="col-md-7">
                                  <div class="contact-img text-center px-md-5">
                                      <div class="title mb-3">
-                                         <h3 class="text-left">UPDATE USERNAME</h3>
+                                         <h3 class="text-left">HEALTH USERNAME</h3>
                                      </div>
-                                     <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-change-username/">
+                                     <form name="frm" id="frm" method="post" action="<?php echo SITEURL; ?>process-health-username/">
                                         <div class="form-group"> 
-                                            <label for="username">New User Name</label>
+                                            <label for="username">User Name</label>
                                             <input type="text" name="username" id="username" maxlength="50" class="form-control" placeholder="User Name"> 
                                         </div>
                                         <button type="submit" class="btn btn-primary">SUBMIT</button>
@@ -52,7 +52,7 @@
         $("#frm").validate({
             ignore: "",
             rules: {
-                username:{required:true, minlength:8},
+                username:{required:true, minlength: 8},
             },
             messages: { 
                 username:{required:"Please enter username.", minlength:"Username must be atleast 8 characters long."},

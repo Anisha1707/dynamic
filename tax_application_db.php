@@ -92,11 +92,10 @@
 	//print '<pre>'; print_r($res); exit;
 
     if( $httpcode == 200 )
-    //if( strtolower($res['status']) == 'success' )
     {
     	if( $mode == 'add' )
     		$_SESSION[SESS_PRE.'_TAX_APPLICATION_ID'] = $res['taxApplicationId'];
-    	$_SESSION['MSG'] = 'Tax_Application_Success';
+    	//$_SESSION['MSG'] = 'Tax_Application_Success';
     	if( $mode == 'add' )
 			$db->location(SITEURL.'personal-information/');
 		else

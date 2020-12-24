@@ -58,7 +58,8 @@
 	    if( $httpcode == 200 )
 	    //if( strtolower($res['status']) == 'success' )
 	    {
-	    	$_SESSION['MSG'] = 'Pin_Success';
+	    	//$_SESSION['MSG'] = 'Pin_Success';
+	    	$_SESSION['MSG'] = 'Spouse_Info_Success';
 	    	if( $mode == 'add' )
 				$db->location(SITEURL.'family-question-dependent/');
 			else
@@ -83,6 +84,7 @@
 	}
 	else
 	{
+		$_SESSION['MSG'] = 'Spouse_Info_Success';
 		$db->location(SITEURL.'family-question-dependent/');
 		exit;
 	}

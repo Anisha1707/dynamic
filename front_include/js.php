@@ -222,6 +222,20 @@
 				  icon: 'success',
 				  confirmButtonText: 'Okay'
 				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Ticket_Success') { ?>
+				Swal.fire({
+				  title: 'Success!',
+				  html: 'Ticket has been generated successfully.',
+				  icon: 'success',
+				  confirmButtonText: 'Okay'
+				});
+			<?php unset($_SESSION['MSG']); } else if(isset($_SESSION['MSG']) && $_SESSION['MSG'] == 'Ticket_Msg_Success') { ?>
+				Swal.fire({
+				  title: 'Success!',
+				  html: 'Your message has been sent successfully.',
+				  icon: 'success',
+				  confirmButtonText: 'Okay'
+				});
 			<?php unset($_SESSION['MSG']); } else if( isset($_SESSION['MSG']) && !empty($_SESSION['MSG']) ) { ?>
 				//$.notify({message: "<?php echo addslashes($_SESSION['MSG']); ?>"},{type: 'danger'});
 				Swal.fire({

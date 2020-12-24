@@ -45,6 +45,7 @@
     <?php include('front_include/footer.php'); ?>
 </div>
 <?php include('front_include/js.php'); ?>
+<script>fbq('track', 'Purchase', {value: 500.00, currency: 'USD'});</script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.loader').hide();
